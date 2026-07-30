@@ -1,0 +1,61 @@
+.navbar {
+    background-color: tomato;
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: gold;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.nav-link.active {
+    color: white;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.hero{
+    background-image: url("images/image1.jpg");
+    height: 90vh;
+    margin-bottom: 50px;
+}
+h1,
+.one{
+    color: black;
+    font-weight: bolder;
+    padding: 50px;
+}
+.card-img-top{
+    height: 220px;
+    object-fit: cover;
+}
+.button{
+    background-color: tomato;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
