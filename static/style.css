@@ -1,5 +1,8 @@
 .navbar {
     background-color: tomato;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .navbar-collapse {
@@ -37,25 +40,78 @@
     margin-right: 10px;
 }
 
-.hero{
-    background-image: url("images/image1.jpg");
+.hero {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)),
+        url("images/image1.jpg");
     height: 90vh;
     margin-bottom: 50px;
 }
+.hero h1,
+.hero p{
+    color: white;
+}
 h1,
-.one{
+.one {
     color: black;
     font-weight: bolder;
     padding: 50px;
 }
-.card-img-top{
+
+.card-img-top {
     height: 220px;
     object-fit: cover;
 }
-.button{
+
+.button {
     background-color: tomato;
     text-decoration: none;
     padding: 10px;
     border-radius: 10px;
     color: white;
+}
+
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+}
+
+.card-1 {
+    border-style: solid;
+    border-color: red;
+    box-shadow: 0 4px 10px black;
+    background-color: darkgray;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+footer hr {
+    border: black 2px dotted;
+    background-color: #ccc;
+}
+
+footer {
+    background-color: #1f2937;
+    color: white;
+    padding: 50px 0;
+    margin-top: 80px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: tomato;
+}
+
+.fa-brands {
+    font-size: 28px;
+    margin-right: 15px;
 }
