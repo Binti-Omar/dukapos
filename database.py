@@ -54,3 +54,14 @@ stock1=(1,34)
 stock2=(2,29)
 # insert_stock(stock1)
 # insert_stock(stock2)
+
+def insert_user(user_values):
+    query='insert into users (fullname,email,password,role) values (%s,%s,%s,%s);'
+    cur.execute(query,user_values)
+    conn.commit()
+
+def check_email(email):
+    query='select * from users where email=%s'
+    cur.execute(query,(email,))
+    data=cur.fetchone()
+    return data

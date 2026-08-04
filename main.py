@@ -1,11 +1,12 @@
 from flask import Flask,render_template,request,redirect,url_for
-from database import display_products,display_sales,display_stock,insert_products,insert_sales,insert_stock
+from database import display_products,display_sales,display_stock,insert_products,insert_sales,insert_stock,insert_user,check_email
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
     return render_template("index.html")
+    
 
 @app.route("/products")
 def products():
@@ -62,9 +63,23 @@ def add_stock():
 def dashboard():
     return render_template("dashboard.html")
 
-@app.route("/register")
+@app.route("/register",methods=["GET","POST"])
 def register():
-    return render_template("register.html")
+    if request.method=="POST":
+        fullname=request.form["f_name"]
+        email=request.form["email"]
+        password=request.form["password"]
+        role=request.form["role"]
+        new_user=(fullname,email,password,role)
+
+        check=check_email(email)
+        if check==None:
+            insert_user(new_user)
+            print('Registered successfully,please proceed to login',"success")
+            return redirect(url_for('login'))
+        else:
+            print('User already exists use a different email or login please',"warning")
+    return render_template('register.html')
 
 @app.route("/login")
 def login():
