@@ -28,6 +28,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
+                    {% if session.email %}
                     <li class="nav-item">
                         <a class="nav-link active" href="/products">Products</a>
                     </li>
@@ -41,15 +42,30 @@
                         <a class="nav-link" href="/dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
                         <a class="nav-link" href="/register">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
+
+    <div class="mt-5">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+    </div>
 
     {% block content %}
 
