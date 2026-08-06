@@ -38,6 +38,19 @@ def add_products():
         flash('Products added successfully',"success")
     return redirect(url_for("products"))
 
+@app.route('/update_products',methods=['GET','POST'])
+def update_products():
+    if request.method=='POST':
+        product_id=request.form['id']
+        product_name=request.form['p_name']
+        buying_price=request.form['b_price']
+        selling_price=request.form['s_price']
+
+        update_products(product_name,buying_price,selling_price,id)
+        flash('Product updated successfully',"success")
+        return redirect(url_for('products'))
+    return redirect(url_for('products'))
+
 @app.route("/sales")
 @login_required
 def sales():
